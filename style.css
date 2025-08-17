@@ -1,0 +1,480 @@
+﻿/* =========================================================
+   Currículo — Leonardo Thums
+   Autor: você ✨
+   Notas:
+   - Variáveis de tema: personalize cores e espaçamentos.
+   - Layout responsivo com Flexbox e Grid simples.
+   - Foco em acessibilidade (focus-visible etc.).
+   ========================================================= */
+
+/* ---------- Reset básico e acessibilidade ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.6;
+    color: var(--fg);
+    background: var(--bg);
+}
+
+:root {
+    --bg: #0b0c10;
+    --surface: #11131a;
+    --fg: #e8eef4;
+    --muted: #a7b0ba;
+    --primary: #52b788;
+    --primary-600: #3ea772;
+    --primary-700: #2f8b5e;
+    --border: #273043;
+    --shadow: 0 8px 24px rgba(0,0,0,.25);
+    --radius: 14px;
+    --container: 1080px;
+    --space-1: .5rem;
+    --space-2: .75rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: 3rem;
+}
+
+/* Tema claro (aplicado via JS) */
+body[data-theme="light"] {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --fg: #111827;
+    --muted: #4b5563;
+    --primary: #2563eb;
+    --primary-600: #1d4ed8;
+    --primary-700: #1e40af;
+    --border: #e5e7eb;
+}
+
+/* Visually hidden para leitores de tela */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Utilidades ---------- */
+.container {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 0 var(--space-3);
+}
+
+.bloco {
+    padding: var(--space-6) 0;
+}
+
+.bloco--sobre {
+    padding-top: var(--space-4);
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    background: var(--primary);
+    color: white;
+    padding: .75rem 1rem;
+    border-radius: 8px;
+}
+
+    .skip-link:focus {
+        left: 1rem;
+        top: 1rem;
+        z-index: 1000;
+    }
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 2px;
+        border-radius: 8px;
+    }
+
+/* ---------- Header & Nav ---------- */
+.site-header {
+    background: linear-gradient(180deg, var(--surface), transparent);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+}
+
+    .site-header .container {
+        padding: var(--space-3) var(--space-3) var(--space-4);
+    }
+
+h1 {
+    margin: 0 0 var(--space-2) 0;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.saudacao {
+    margin: 0 0 var(--space-3);
+    color: var(--muted);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    padding: 0;
+    margin: 0 0 var(--space-3) 0;
+    list-style: none;
+}
+
+    .menu a {
+        display: inline-block;
+        padding: .5rem .75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,.02);
+    }
+
+        .menu a:hover {
+            background: rgba(255,255,255,.06);
+        }
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    padding: .6rem .95rem;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow);
+    font-weight: 600;
+}
+
+    .btn:hover {
+        background: var(--primary-600);
+    }
+
+    .btn:active {
+        background: var(--primary-700);
+    }
+
+.btn-secondary {
+    background: #374151;
+}
+
+    .btn-secondary:hover {
+        background: #2b3443;
+    }
+
+.btn-outline {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+    .btn-outline:hover {
+        background: rgba(255,255,255,.06);
+    }
+
+/* ---------- Sobre ---------- */
+.sobre-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 800px) {
+    .sobre-grid {
+        grid-template-columns: minmax(0,2fr) minmax(0,1.2fr);
+        align-items: start;
+    }
+}
+
+.lista-dados {
+    padding-left: 1.1rem;
+}
+
+    .lista-dados li {
+        margin-bottom: .25rem;
+    }
+
+.foto, .audio {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+
+}
+.audio {
+    width: 100%;
+}
+    .audio audio {
+        width: 100%;
+        max-width: 100%;
+        display: block; /* remove o “gap” de linha */
+        height: 44px; /* altura confortável; opcional */
+    }
+@media (max-width: 480px) {
+    .audio audio {
+        height: 48px;
+    }
+}
+
+    .foto img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+.descricao-midias {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+/* ---------- Canvas ---------- */
+.canvas-wrapper {
+    margin-top: var(--space-5);
+    border: 1px dashed var(--border);
+    padding: var(--space-3);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.02);
+}
+
+.legenda-canvas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    margin: .5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .legenda-canvas li {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .legenda-canvas .swatch {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        display: inline-block;
+        border: 2px solid rgba(0,0,0,.45); /* contorno ajuda no tema escuro */
+        box-shadow: 0 0 0 2px rgba(255,255,255,.15); /* “anel” para separar do fundo */
+    }
+
+body[data-theme="light"] .legenda-canvas .swatch {
+    border-color: rgba(0,0,0,.25);
+    box-shadow: 0 0 0 2px rgba(255,255,255,.9); /* anel claro no tema claro */
+}
+/* Layout lado a lado: gráfico à esquerda, legenda à direita */
+.skills-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 520px) 1fr; /* canvas | legenda */
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+    .skills-layout canvas {
+        width: 100%; /* torna o canvas responsivo */
+        height: auto;
+    }
+
+/* Legenda vertical com swatch de cor */
+.legenda-canvas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    line-height: 1.25;
+}
+
+.legenda-label {
+    word-break: break-word;
+}
+
+.swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+    border: 2px solid rgba(0,0,0,.45); /* contorno melhora o contraste */
+    box-shadow: 0 0 0 2px rgba(255,255,255,.15); /* anel contra fundos escuros */
+}
+
+body[data-theme="light"] .swatch {
+    border-color: rgba(0,0,0,.25);
+    box-shadow: 0 0 0 2px rgba(255,255,255,.9);
+}
+
+/* Em telas estreitas, empilha (canvas em cima, legenda embaixo) */
+@media (max-width: 820px) {
+    .skills-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* opcional: empilha em telas pequenas */
+@media (max-width:640px) {
+    .legenda-canvas {
+        flex-direction: column;
+        gap: .35rem;
+    }
+}
+
+/* ---------- Experiência ---------- */
+.job {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+    .job h3 {
+        margin: 0 0 .25rem 0;
+        font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    }
+
+.job-meta {
+    color: var(--muted);
+    margin: 0 0 .5rem 0;
+}
+
+/* ---------- Tags ---------- */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0;
+    list-style: none;
+}
+
+    .tags li {
+        border: 1px solid var(--border);
+        padding: .4rem .7rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,.02);
+    }
+
+/* ---------- Contato ---------- */
+.bloco--contato .card-contato {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.form {
+    display: grid;
+    gap: .75rem;
+    max-width: 560px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: .7rem .9rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #0f1220;
+    color: var(--fg);
+}
+
+body[data-theme="light"] input[type="text"],
+body[data-theme="light"] input[type="email"] {
+    background: #fff;
+}
+
+.botoes-form {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.contador {
+    margin-top: var(--space-3);
+    color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-4) 0 var(--space-5);
+}
+
+    .site-footer address {
+        font-style: normal;
+    }
+
+.social {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin: .5rem 0 0;
+}
+
+.copy {
+    color: var(--muted);
+}
+
+.voltar {
+    margin-left: .25rem;
+}
+
+/* ---------- Estados/efeitos ---------- */
+.hidden {
+    display: none !important;
+}
+
+.menu a:hover, .social a:hover {
+    filter: brightness(1.15);
+}

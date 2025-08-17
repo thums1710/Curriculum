@@ -1,0 +1,312 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Currículo — Leonardo Thums</title>
+    <meta name="description" content="Currículo online de Leonardo Thums — TI, tradução, suporte e operações online." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header" role="banner">
+        <div class="container">
+            <h1 id="topo">
+                <span aria-hidden="true">💼</span> Currículo de <strong>Leonardo Thums</strong>
+            </h1>
+            <p id="saudacao" class="saudacao" aria-live="polite">
+                Olá! Bem-vindo ao meu currículo online.
+            </p>
+
+            <nav aria-label="Navegação principal">
+                <ul class="menu">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
+                    <li><a href="#formacao">Formação</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#idiomas">Idiomas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="acoes">
+                <button id="toggleResumo" class="btn btn-secondary">Mostrar/ocultar resumo</button>
+                <button id="toggleTema" class="btn btn-outline" aria-pressed="false">Alternar tema</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <!-- SOBRE -->
+        <section id="sobre" aria-labelledby="titulo-sobre" class="bloco bloco--sobre">
+            <div class="container">
+                <h2 id="titulo-sobre">Sobre</h2>
+
+                <div class="sobre-grid">
+                    <article class="sobre-texto">
+                        <p id="textoResumo">
+                            Líder dedicado e motivado, com experiência em gestão de projetos, P&amp;D, suporte de TI e tradução.
+                            Trabalhei em ambientes multiculturais (Brasil, Argentina, Alemanha e EUA), sempre focado em
+                            solucionar problemas com agilidade, aprender rápido e entregar excelente experiência ao cliente.
+                        </p>
+
+                        <ul class="lista-dados">
+                            <li><strong>Nascimento:</strong> <time datetime="1995-10-17">17/10/1995</time></li>
+                            <li><strong>Endereço:</strong> Rua Itaberaba 730 — São Miguel do Oeste, SC</li>
+                            <li><strong>Telefone:</strong> <a href="tel:+5511930506384" rel="noopener">(11) 93050-6384</a></li>
+                            <li><strong>E-mail:</strong> <a href="mailto:l.thums@hotmail.com">l.thums@hotmail.com</a></li>
+                        </ul>
+
+                        <p id="contador" class="contador" aria-live="polite"></p>
+                    </article>
+
+                    <aside class="sobre-midia">
+                        <figure class="foto">
+                            <img src="media/foto.jpg" alt="Retrato profissional de Leonardo Thums" />
+                            <figcaption>Foto de perfil utilizada para identificação no currículo.</figcaption>
+                        </figure>
+
+                        <figure class="audio">
+                            <figcaption></figcaption>
+                            <audio controls src="media/intro.mp3">
+                                Seu navegador não suporta o elemento
+                                <code>audio</code>.
+                                Você pode fornecer um arquivo MP3 em
+                                <code>/media/intro.mp3</code>.
+                            </audio>
+                            <p class="descricao-midias"></p>
+                        </figure>
+                    </aside>
+                </div>
+
+                <!-- Canvas decorativo -->
+                <section aria-labelledby="titulo-canvas" class="canvas-wrapper">
+                    <h3 id="titulo-canvas">Mapa rápido de habilidades</h3>
+
+                    
+                    <div class="skills-layout">
+                        <canvas id="skillsChart" width="520" height="260" role="img"
+                                aria-label="Gráfico de setores com principais habilidades"></canvas>
+                        <ul id="legend" class="legenda-canvas" aria-label="Legenda do gráfico"></ul>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIA -->
+        <section id="experiencia" aria-labelledby="titulo-experiencia" class="bloco">
+            <div class="container">
+                <h2 id="titulo-experiencia">Experiência Profissional</h2>
+
+                <article class="job">
+                    <header>
+                        <h3>Diretor de Operações Online — Artesian Fusion Mineral Water</h3>
+                        <p class="job-meta">
+                            <span>Remoto — Lewiston, Idaho (EUA)</span> •
+                            <time datetime="2022-11">nov/2022</time> — <time datetime="9999-12">presente</time>
+                        </p>
+                    </header>
+                    <ul>
+                        <li>Gestão de operações online e crescimento contínuo da empresa;</li>
+                        <li>Supervisão de marketing digital e vendas, campanhas e promoções;</li>
+                        <li>Análises de desempenho e melhorias em plataformas de e-commerce;</li>
+                        <li>Relacionamento com clientes e parceiros internacionais.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Especialista de Suporte ao Cliente — UENI</h3>
+                        <p class="job-meta"><span>Londres, Inglaterra</span> • <time datetime="2022-01">2022</time></p>
+                    </header>
+                    <ul>
+                        <li>Apoio técnico-operacional a clientes para colocarem seus negócios online;</li>
+                        <li>100% de satisfação nos feedbacks;</li>
+                        <li>Google Suite, Freshdesk, qualidade e padronização.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Especialista em Service Desk — RWS Moravia</h3>
+                        <p class="job-meta"><span>Rosário, Santa Fé, Argentina</span> • <time datetime="2021-01">2021</time>–<time datetime="2022-01">2022</time></p>
+                    </header>
+                    <ul>
+                        <li>Suporte a 300+ usuários, diagnóstico de rede e reconfigurações;</li>
+                        <li>Active Directory, Azure, Intune, Exchange, O365 e scripts;</li>
+                        <li>Gestão de dados sensíveis e contas de clientes.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Gerente de TI — Xphere</h3>
+                        <p class="job-meta"><span>São Paulo, SP</span> • <time datetime="2020-01">2020</time>–<time datetime="2021-01">2021</time></p>
+                    </header>
+                    <ul>
+                        <li>P&amp;D de produtos inovadores, VR/Streaming (Unity), captação/codificação de vídeo;</li>
+                        <li>Reuniões com clientes/investidores, negociações.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Tradutor — Freelance</h3>
+                        <p class="job-meta"><span>Rosário, Argentina</span> • <time datetime="2019-01">2019</time>–<time datetime="2020-01">2020</time></p>
+                    </header>
+                    <ul>
+                        <li>Tradução de legendas e artigos (Lionsgate, Appen, Zoo Digital);</li>
+                        <li>EN↔ES, PT↔ES, PT↔EN e localização de conteúdo.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Técnico de TI — Freelancer</h3>
+                        <p class="job-meta"><span>Brasil e Argentina</span> • <time datetime="2016-01">2016</time>–<time datetime="9999-12">presente</time></p>
+                    </header>
+                    <ul>
+                        <li>Programação de servidores, atualização de hardware e consultoria de compras.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Proprietário de Servidor de Jogos — Técnico</h3>
+                        <p class="job-meta"><span>Brasil e Argentina</span> • <time datetime="2015-01">2015</time>–<time datetime="9999-12">presente</time></p>
+                    </header>
+                    <ul>
+                        <li>Hospedagem/manutenção de servidores, Linux, acesso remoto, FTP, MySQL, nuvem e faturamento.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Pesquisador — ACT Sistemas</h3>
+                        <p class="job-meta"><span>São Miguel do Oeste, SC</span> • <time datetime="2015-01">01/2015</time>–<time datetime="2015-11">11/2015</time></p>
+                    </header>
+                    <ul>
+                        <li>P&amp;D de software de controle de fumaça em parceria com o IF;</li>
+                        <li>Android, tradução técnica, feedback internacional, BD e treinamentos.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <header>
+                        <h3>Beta Tester — Freelancer</h3>
+                        <p class="job-meta"><span>Brasil e Argentina</span> • <time datetime="2012-01">2012</time>–<time datetime="2021-01">2021</time></p>
+                    </header>
+                    <ul>
+                        <li>Testes Alpha/Beta para Bethesda, Bohemia, Indie Stone (relatórios, QA, NDAs e dados sensíveis).</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- FORMAÇÃO -->
+        <section id="formacao" aria-labelledby="titulo-formacao" class="bloco">
+            <div class="container">
+                <h2 id="titulo-formacao">Formação Acadêmica</h2>
+                <ul>
+                    <li><strong>UNOESC —</strong> Ciências da Computação <em>(2023–Presente)</em></li>
+                    <li><strong>Universidade Interamericana (UAI) —</strong> Medicina (M.D.) <em>(2016–2022)</em></li>
+                    <li><strong>SENAI —</strong> Técnico em Informática <em>(2011–2012)</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section id="habilidades" aria-labelledby="titulo-habilidades" class="bloco">
+            <div class="container">
+                <h2 id="titulo-habilidades">Habilidades &amp; Palavras-chave</h2>
+                <ul class="tags">
+                    <li>Suporte Técnico</li>
+                    <li>Hardware</li>
+                    <li>Software</li>
+                    <li>Azure</li>
+                    <li>Active Directory</li>
+                    <li>Linux</li>
+                    <li>Automação</li>
+                    <li>Tradução</li>
+                    <li>Informatização</li>
+                    <li>Liderança</li>
+                    <li>Empatia</li>
+                    <li>O365</li>
+                    <li>PowerPoint</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- IDIOMAS -->
+        <section id="idiomas" aria-labelledby="titulo-idiomas" class="bloco">
+            <div class="container">
+                <h2 id="titulo-idiomas">Idiomas</h2>
+                <ul>
+                    <li>Português: Nativo</li>
+                    <li>Inglês: Nativo</li>
+                    <li>Espanhol: Nativo</li>
+                    <li>Alemão: Básico</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato" aria-labelledby="titulo-contato" class="bloco bloco--contato">
+            <div class="container">
+                <h2 id="titulo-contato">Contato</h2>
+                <article class="card-contato">
+                    <p>
+                        Fique à vontade para me chamar por
+                        <a href="mailto:l.thums@hotmail.com" rel="noopener">e-mail</a> ou
+                        <a href="tel:+5511930506384">telefone</a>.
+                        Você também pode preencher o campo abaixo para personalizar a saudação do site.
+                    </p>
+
+                    <form id="formNome" class="form" aria-describedby="ajudaNome">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" autocomplete="name" />
+                        <small id="ajudaNome">Ao salvar, seu nome aparecerá no topo da página (usa armazenamento local).</small>
+
+                        <label for="email">Seu e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Ex.: voce@email.com" autocomplete="email" />
+
+                        <div class="botoes-form">
+                            <button type="submit" class="btn">Salvar nome</button>
+                            <button type="button" id="limpar" class="btn btn-secondary">Limpar dados</button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <address>
+                <strong>Leonardo Thums</strong> — São Miguel do Oeste, SC •
+                <a href="mailto:l.thums@hotmail.com">l.thums@hotmail.com</a>
+            </address>
+
+            <ul class="social">
+                <!-- Substitua # pelos seus perfis quando quiser -->
+                <li><a href="#" aria-label="LinkedIn de Leonardo">LinkedIn</a></li>
+                <li><a href="#" aria-label="GitHub de Leonardo">GitHub</a></li>
+            </ul>
+
+            <p class="copy">
+                &copy; <span id="ano"></span> Leonardo Thums — Todos os direitos reservados.
+                <a class="voltar" href="#topo">Voltar ao topo ↑</a>
+            </p>
+        </div>
+    </footer>
+
+    <noscript>
+        Este site usa JavaScript para algumas interações (saudação, contador, tema e gráfico).
+        Ative o JavaScript para a experiência completa.
+    </noscript>
+
+    <script src="script.js"></script>
+</body>
+</html>
