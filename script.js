@@ -1,14 +1,3 @@
-﻿/* =========================================================
-   Interações básicas do currículo — Leonardo Thums
-   Funcionalidades:
-   - Botão "Dizer Olá" (alert)
-   - Mostrar/ocultar resumo
-   - Saudação dinâmica com nome (localStorage)
-   - Contador de visitas (localStorage)
-   - Alternância de tema (claro/escuro) persistente
-   - Canvas: gráfico simples de setores com habilidades
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
     // Elementos
     const btnOla = document.getElementById("btn");
@@ -205,3 +194,4 @@ document.addEventListener("DOMContentLoaded", () => {
         drawChart();
     });
 });
+
