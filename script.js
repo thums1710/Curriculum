@@ -1,3 +1,14 @@
+/* =========================================================
+   Interações básicas do currículo — Leonardo Thums
+   Funcionalidades:
+   - Botão "Dizer Olá" (alert)
+   - Mostrar/ocultar resumo
+   - Saudação dinâmica com nome (localStorage)
+   - Contador de visitas (localStorage)
+   - Alternância de tema (claro/escuro) persistente
+   - Canvas: gráfico simples de setores com habilidades
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
     // Elementos
     const btnOla = document.getElementById("btn");
@@ -193,5 +204,79 @@ document.addEventListener("DOMContentLoaded", () => {
         // mantém os atributos width/height do canvas; se controlar via CSS, ajuste aqui
         drawChart();
     });
-});
 
+    // ===== Easter Egg: Modo Café =====
+    const secret = "cafe";
+    let buffer = "", eggTimer = null;
+
+    function spawnCoffeeEmojis(n = 28) {
+        for (let i = 0; i < n; i++) {
+            const span = document.createElement("span");
+            span.className = "coffee-bean";
+            span.textContent = "☕";
+            span.style.left = Math.random() * 100 + "vw";
+            span.style.setProperty("--drift", (Math.random() * 80 - 40) + "px");
+            span.style.animationDuration = (3.5 + Math.random() * 2).toFixed(2) + "s";
+            document.body.appendChild(span);
+            span.addEventListener("animationend", () => span.remove());
+        }
+    }
+
+    function showToast(msg) {
+        let t = document.getElementById("toast");
+        if (!t) {
+            t = document.createElement("div");
+            t.id = "toast";
+            t.className = "toast";
+            document.body.appendChild(t);
+        }
+        t.textContent = msg;
+        t.classList.remove("hidden");
+        setTimeout(() => t.classList.add("hidden"), 4000);
+    }
+
+    function activateCoffeeMode() {
+        if (document.body.classList.contains("coffee-mode")) return;
+        document.body.classList.add("coffee-mode");
+
+        const cups = Number(localStorage.getItem("coffeeCups") || "0") + 1;
+        localStorage.setItem("coffeeCups", String(cups));
+
+        spawnCoffeeEmojis(28);
+        showToast(`☕ Modo café! (${cups}x)`);
+
+        // som opcional (coloque media/coffee.mp3; se não existir, ignora)
+        const audio = new Audio("media/coffee.mp3");
+        audio.volume = 0.35;
+        audio.play().catch(() => { });
+
+        setTimeout(() => document.body.classList.remove("coffee-mode"), 15000);
+    }
+
+    // Ativar ao digitar CAFE (em até 3s)
+    document.addEventListener("keydown", (e) => {
+        if (eggTimer) clearTimeout(eggTimer);
+        buffer += (e.key || "").toLowerCase();
+        buffer = buffer.slice(-secret.length);
+        if (buffer === secret) { activateCoffeeMode(); buffer = ""; }
+        eggTimer = setTimeout(() => buffer = "", 3000);
+    });
+
+    // Atalho alternativo: Shift+Alt+C
+    document.addEventListener("keydown", (e) => {
+        if (e.altKey && e.shiftKey && e.key.toLowerCase() === "c") {
+            activateCoffeeMode();
+        }
+    });
+
+    // Clique oculto: 3 cliques no título
+    let clicks = 0, clickTimer;
+    document.querySelector("h1")?.addEventListener("click", () => {
+        clicks++;
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(() => (clicks = 0), 600);
+        if (clicks >= 3) { activateCoffeeMode(); clicks = 0; }
+    });
+
+
+});
