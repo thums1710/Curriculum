@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    Currículo — Leonardo Thums
    Autor: você ✨
    Notas:
@@ -478,3 +478,56 @@ body[data-theme="light"] input[type="email"] {
 .menu a:hover, .social a:hover {
     filter: brightness(1.15);
 }
+
+/* ===== Easter Egg: Modo Café ===== */
+body.coffee-mode::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    background: radial-gradient(1200px 500px at 20% 10%, rgba(194,122,72,.12), transparent 60%), radial-gradient(800px 400px at 80% 90%, rgba(107,91,83,.10), transparent 55%);
+    backdrop-filter: saturate(1.05) contrast(1.02);
+}
+
+.coffee-bean {
+    position: fixed;
+    bottom: -2rem;
+    z-index: 1000;
+    font-size: 28px;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,.25));
+    animation: coffee-up 4.5s ease-out forwards;
+}
+
+@keyframes coffee-up {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(.9);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(var(--drift,0px)) rotate(360deg) scale(1.05);
+        opacity: 0;
+    }
+}
+
+.toast {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1001;
+    background: var(--surface);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .75rem 1rem;
+    box-shadow: var(--shadow);
+}
+
+    .toast.hidden {
+        display: none;
+    }
